@@ -3,6 +3,8 @@
 import argparse, json
 
 class AliecsEnv:
+  """Process ali-ecs env. configuration
+  """
   def __init__(self, input) -> None:
     if(type(input) is str):
       self.vars = self.ResolveVars(input)
@@ -25,6 +27,10 @@ class AliecsEnv:
       print(f'|{det}|{tableContents[det]["DPL"]}|{tableContents[det]["QC"]}||')
     return None
   def ResolveVars(self, strVars : str ) -> dict:
+    if(strVars.find('.json') > -1):
+      vars = json.load(open(strVars))
+    else:
+      vars = json.loads(strVars)
     return vars
 
 if __name__ == '__main__':
