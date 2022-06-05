@@ -1,0 +1,16 @@
+{
+  "name": "ALICE Shift utilities",
+  "description": "Scripts for ALICE shifter",
+  "version": "1.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "js": [
+        "content.js"
+      ],
+      "matches": [
+        "https://ali-ecs.cern.ch/?page=environment&id=*"
+      ]
+    }
+  ]
+}
